@@ -14,7 +14,7 @@ public class Result {
     }
 
     public ResultType decideResultType() {
-        if(hasStrike() & hasBall()){
+        if (hasStrike() & hasBall()) {
             return BOTH_STRIKE_AND_BALL;
         }
         if (hasStrike()) {
@@ -23,7 +23,7 @@ public class Result {
         if (hasBall()) {
             return ONLY_BALL;
         }
-        if(hasNothing()){
+        if (hasNothing()) {
             return NOTHING;
         }
         return null;
@@ -39,5 +39,21 @@ public class Result {
 
     private boolean hasStrike() {
         return strike != 0;
+    }
+
+    public String createResultMessage(ResultType resultType) {
+        if (resultType == ONLY_STRIKE) {
+            return String.format(ONLY_STRIKE.getMessage(), strike);
+        }
+        if (resultType == ONLY_BALL) {
+            return String.format(ONLY_BALL.getMessage(), ball);
+        }
+        if (resultType == NOTHING) {
+            return String.format(NOTHING.getMessage());
+        }
+        if (resultType == BOTH_STRIKE_AND_BALL) {
+            return String.format(BOTH_STRIKE_AND_BALL.getMessage(), ball, strike);
+        }
+        return null;
     }
 }
