@@ -5,7 +5,6 @@ import baseball.Error.ErrorMessage;
 import java.util.List;
 
 public class UserNumber {
-
     private static final Integer INPUT_SIZE = 3;
     private String inputStr;
     private List<Integer> numbers;

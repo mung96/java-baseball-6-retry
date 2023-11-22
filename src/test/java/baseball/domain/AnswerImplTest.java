@@ -85,7 +85,6 @@ public class AnswerImplTest {
         Integer resultBall = answer.countBall(userNumbers);
         Assertions.assertThat(resultBall).isEqualTo(expectBall);
     }
-
 }
 
 
