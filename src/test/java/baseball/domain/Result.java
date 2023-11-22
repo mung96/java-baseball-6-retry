@@ -8,12 +8,15 @@ public class Result {
     private final Integer strike;
     private final Integer ball;
 
-    Result(Answer answer, List<Integer> userNumber) {
-        this.strike = answer.countStrike(userNumber);
-        this.ball = answer.countBall(userNumber);
+    Result(Integer strike, Integer ball) {
+        this.strike = strike;
+        this.ball = ball;
     }
 
     public ResultType decide() {
+        if(strike == 0 & ball==0){
+            return NOTHING;
+        }
         if (ball == 0) {
             return ONLY_STRIKE;
         }
