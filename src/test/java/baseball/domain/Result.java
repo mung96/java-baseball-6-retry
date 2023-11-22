@@ -13,16 +13,31 @@ public class Result {
         this.ball = ball;
     }
 
-    public ResultType decide() {
-        if(strike == 0 & ball==0){
-            return NOTHING;
+    public ResultType decideResultType() {
+        if(hasStrike() & hasBall()){
+            return BOTH_STRIKE_AND_BALL;
         }
-        if (ball == 0) {
+        if (hasStrike()) {
             return ONLY_STRIKE;
         }
-        if (strike == 0) {
+        if (hasBall()) {
             return ONLY_BALL;
         }
+        if(hasNothing()){
+            return NOTHING;
+        }
         return null;
+    }
+
+    private boolean hasNothing() {
+        return strike == 0 & ball == 0;
+    }
+
+    private boolean hasBall() {
+        return ball != 0;
+    }
+
+    private boolean hasStrike() {
+        return strike != 0;
     }
 }

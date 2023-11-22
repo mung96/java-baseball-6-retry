@@ -44,9 +44,20 @@ public class ResultTest {
         Assertions.assertThat(expectResultType).isEqualTo(NOTHING);
     }
 
+    @Test
+    @DisplayName("볼,스트라이크 둘다 있을 때 BOTH_STRIKE_AND_BALL 상수를 반환한다.")
+    void StrikeAndBall() {
+        //given
+        Integer strike = 1;
+        Integer ball = 2;
+        ResultType expectResultType = getExpectResultType(strike,ball);
+        //then
+        Assertions.assertThat(expectResultType).isEqualTo(BOTH_STRIKE_AND_BALL);
+    }
+
     private ResultType getExpectResultType(Integer strike, Integer ball) {
         Result result = new Result(strike,ball);
-        ResultType expectResult = result.decide();
+        ResultType expectResult = result.decideResultType();
         return expectResult;
     }
 }
