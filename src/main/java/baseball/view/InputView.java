@@ -5,7 +5,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
     public static String askUserNumber() {
-        System.out.println(ASK_USER_NUMBER.getMessage());
+        System.out.print(ASK_USER_NUMBER.getMessage());
         return readLine();
     }
 
