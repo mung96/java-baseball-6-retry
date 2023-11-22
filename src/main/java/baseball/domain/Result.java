@@ -1,14 +1,13 @@
 package baseball.domain;
 
-import java.util.List;
-
 import static baseball.domain.ResultType.*;
+import static java.lang.String.*;
 
 public class Result {
     private final Integer strike;
     private final Integer ball;
 
-    Result(Integer strike, Integer ball) {
+    public Result(Integer strike, Integer ball) {
         this.strike = strike;
         this.ball = ball;
     }
@@ -43,17 +42,22 @@ public class Result {
 
     public String createResultMessage(ResultType resultType) {
         if (resultType == ONLY_STRIKE) {
-            return String.format(ONLY_STRIKE.getMessage(), strike);
+            return format(ONLY_STRIKE.getMessage(), strike);
         }
         if (resultType == ONLY_BALL) {
-            return String.format(ONLY_BALL.getMessage(), ball);
+            return format(ONLY_BALL.getMessage(), ball);
         }
         if (resultType == NOTHING) {
-            return String.format(NOTHING.getMessage());
+            return format(NOTHING.getMessage());
         }
         if (resultType == BOTH_STRIKE_AND_BALL) {
-            return String.format(BOTH_STRIKE_AND_BALL.getMessage(), ball, strike);
+            return format(BOTH_STRIKE_AND_BALL.getMessage(), ball, strike);
         }
         return null;
+    }
+
+    public String prepareResultMessage(){
+        ResultType resultType = decideResultType();
+        return createResultMessage(resultType);
     }
 }

@@ -21,7 +21,7 @@ public class ResultTest {
         Integer ball = 0;
         ResultType expectResultType = getExpectResultType(strike, ball);
         //then
-        Assertions.assertThat(expectResultType).isEqualTo(ONLY_STRIKE);
+        Assertions.assertThat(expectResultType).isEqualTo(ResultType.ONLY_STRIKE);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ResultTest {
         Integer ball = 1;
         ResultType expectResultType = getExpectResultType(strike, ball);
         //then
-        Assertions.assertThat(expectResultType).isEqualTo(ONLY_BALL);
+        Assertions.assertThat(expectResultType).isEqualTo(ResultType.ONLY_BALL);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ResultTest {
         Integer ball = 0;
         ResultType expectResultType = getExpectResultType(strike, ball);
         //then
-        Assertions.assertThat(expectResultType).isEqualTo(NOTHING);
+        Assertions.assertThat(expectResultType).isEqualTo(ResultType.NOTHING);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class ResultTest {
         Integer ball = 2;
         ResultType expectResultType = getExpectResultType(strike, ball);
         //then
-        Assertions.assertThat(expectResultType).isEqualTo(BOTH_STRIKE_AND_BALL);
+        Assertions.assertThat(expectResultType).isEqualTo(ResultType.BOTH_STRIKE_AND_BALL);
     }
 
     private ResultType getExpectResultType(Integer strike, Integer ball) {
@@ -68,7 +68,7 @@ public class ResultTest {
     @DisplayName("ONLY_STRIKE일때 n스트라이크입니다.메세지를 띄우기.")
     void OnlyStrikeMessage(int givenStrike,String givenMessage) {
         //given
-        ResultType resultType = ONLY_STRIKE;
+        ResultType resultType = ResultType.ONLY_STRIKE;
         Integer strike = givenStrike;
         Integer ball = 0;
         //when
@@ -82,7 +82,7 @@ public class ResultTest {
     @DisplayName("ONLY_BALL일때 n볼입니다.메세지를 띄우기.")
     void onlyBallMessage(int givenBall,String givenMessage) {
         //given
-        ResultType resultType = ONLY_BALL;
+        ResultType resultType = ResultType.ONLY_BALL;
         Integer strike = 0;
         Integer ball = givenBall;
         //when
@@ -96,7 +96,7 @@ public class ResultTest {
     @DisplayName("NOTHING일때 낫싱 메세지를 띄우기.")
     void nothingMessage() {
         //given
-        ResultType resultType = NOTHING;
+        ResultType resultType = ResultType.NOTHING;
         Integer strike = 0;
         Integer ball = 0;
         //when
@@ -112,7 +112,7 @@ public class ResultTest {
     @DisplayName("BOTH_STRIKE_AND_BALL일때 n볼 k스트라이크 입니다.메세지를 띄우기.")
     void strikeAndBallMessage(int givenBall,int givenStrike,String givenMessage) {
         //given
-        ResultType resultType = BOTH_STRIKE_AND_BALL;
+        ResultType resultType = ResultType.BOTH_STRIKE_AND_BALL;
         Integer ball = givenBall;
         Integer strike = givenStrike;
         //when
